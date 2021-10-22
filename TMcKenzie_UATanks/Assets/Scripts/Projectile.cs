@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField]int projDamage;
-    [SerializeField]float projSpeed;
+    [SerializeField] GameObject parentObject;
+    [SerializeField] int projDamage;
+    [SerializeField] float projSpeed;
+    [SerializeField] int projDieTime;
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        DestroySelf(2);
+        DestroySelf(projDieTime);
     }
 
     // Update is called once per frame
@@ -26,10 +28,12 @@ public class Projectile : MonoBehaviour
         return projDamage;
     }
 
-    public void SetDamageAndSpeed(int speed, int damage)
+    public void SetData(int speed, int damage, int time, GameObject parent)
     {
         projSpeed = speed;
         projDamage = damage;
+        projDieTime = time;
+        parentObject = parent;
     }
 
     void DestroySelf(int timeToDestroy)
@@ -39,14 +43,15 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == this.gameObject)
+        if (collision.gameObject.name == parentObject.name)
         {
             Debug.Log("Stop shooting yourself");
+            Debug.Log(collision.gameObject.name + " " + parentObject.name);
         }
         else if (collision.gameObject.GetComponent<Health>())
         {
             collision.gameObject.GetComponent<Health>().TakeDamage(projDamage);
-            Debug.Log("Dealt " + projDamage + " damage to " + collision.gameObject.name);
+            Debug.Log(parentObject.name + " dealt " + projDamage + " damage to " + collision.gameObject.name);
             DestroySelf(0);
         }
     }

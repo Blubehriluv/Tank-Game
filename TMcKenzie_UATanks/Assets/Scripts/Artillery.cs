@@ -6,20 +6,26 @@ public class Artillery : MonoBehaviour
 {
     public GameObject bullet;
     public GameObject shootLocation;
-
     private Transform locationTransform;
-    [SerializeField] private Projectile bulletData;
-    [SerializeField] int firingSpeed;
+
+    [Header("Projectile Data")]
+    [SerializeField] private Projectile ProjectileData;
     [SerializeField] int projectileSpeed;
-    [SerializeField] int reloadSpeed;
     [SerializeField] int projectileDamage;
+    [SerializeField] int destroyTime;
+
+    [Header("Artillery Data")]
+    [SerializeField] float firingDelay;
+    [SerializeField] int reloadSpeed;
     [SerializeField] int ammo;
 
-    // Start is called before the first frame update
+    float timeUntilNextEvent;
+    bool canShoot;
+
     void Start()
     {
-        bulletData = bullet.GetComponent<Projectile>();
-        bulletData.SetDamageAndSpeed(projectileSpeed, projectileDamage);
+        ProjectileData = bullet.GetComponent<Projectile>();
+        
 
         locationTransform = shootLocation.GetComponent<Transform>();
     }
@@ -27,12 +33,28 @@ public class Artillery : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timeUntilNextEvent -= Time.deltaTime;
+        if (timeUntilNextEvent <= 0)
+        {
+            canShoot = true;
+            
+        }
+        else
+        {
+            
+            // Play a sound
+        }
     }
 
     public void Shoot()
     {
-        Instantiate(bullet, locationTransform.transform.position, locationTransform.transform.rotation);
+        if (canShoot)
+        {
+            ProjectileData.SetData(projectileSpeed, projectileDamage, destroyTime, this.gameObject);
+            Instantiate(bullet, locationTransform.transform.position, locationTransform.transform.rotation);
+            timeUntilNextEvent = firingDelay;
+            canShoot = false;
+        }
     }
 
     public int GetAmmo()
