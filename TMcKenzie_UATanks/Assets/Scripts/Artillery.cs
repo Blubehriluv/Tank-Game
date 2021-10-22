@@ -24,28 +24,24 @@ public class Artillery : MonoBehaviour
 
     void Start()
     {
+        // Grabs the Projectile component for data manipulation.
         ProjectileData = bullet.GetComponent<Projectile>();
-        
-
+        // Sets the shoot location transform.
         locationTransform = shootLocation.GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // A timer that limits the fire rate.
         timeUntilNextEvent -= Time.deltaTime;
+        // If the alotted time has passed, the player can shoot.
         if (timeUntilNextEvent <= 0)
         {
             canShoot = true;
-            
-        }
-        else
-        {
-            
-            // Play a sound
         }
     }
 
+    // Fires a bullet in the direction of the tank it is shot from.
     public void Shoot()
     {
         if (canShoot)
@@ -55,13 +51,19 @@ public class Artillery : MonoBehaviour
             timeUntilNextEvent = firingDelay;
             canShoot = false;
         }
+        else
+        {
+            // Play a sound
+        }
     }
 
+    // TODO : Have a maximum ammo limit.
     public int GetAmmo()
     {
         return ammo;
     }
 
+    // TODO : Ammo packs give more ammo with this function.
     public void SetAmmo(int giveThisAmmo)
     {
         ammo = giveThisAmmo;

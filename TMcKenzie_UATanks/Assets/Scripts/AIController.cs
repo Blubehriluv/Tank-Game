@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIShooter : MonoBehaviour
+public class AIController : MonoBehaviour
 {
     public TankData data;
     public Motor motor;
@@ -19,6 +19,7 @@ public class AIShooter : MonoBehaviour
         arty.Shoot();
     }
 
+    // Checks to make sure the game object's components are acquired on start.
     void CheckForNull()
     {
         if (data == null)
@@ -35,5 +36,5 @@ public class AIShooter : MonoBehaviour
         }
     }
 
-    
+
 }

@@ -16,6 +16,7 @@ public class InputController : MonoBehaviour
         SelectInput(true);
     }
 
+    // Checks to make sure the game object's components are acquired on start.
     void CheckForNull()
     {
         if (data == null)
@@ -32,6 +33,7 @@ public class InputController : MonoBehaviour
         }
     }
 
+    // Input select.
     public void SelectInput(bool isUsingWASD)
     {
         if (isUsingWASD)
@@ -49,6 +51,7 @@ public class InputController : MonoBehaviour
     {
         switch (input)
         {
+            // If the control scheme is set to arrow keys, recieve input here.
             case InputScheme.arrowKeys:
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
@@ -70,6 +73,7 @@ public class InputController : MonoBehaviour
                 {
                 }
                 break;
+            // If the control scheme is set to WASD, recieve input here.
             case InputScheme.WASD:
                 if (Input.GetKey(KeyCode.W))
                 {
