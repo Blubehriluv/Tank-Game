@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
     [SerializeField] InputScheme input;
     public TankData data;
     public Motor motor;
+    public Artillery arty;
 
     void Start()
     {
@@ -24,6 +25,10 @@ public class InputController : MonoBehaviour
         if (motor == null)
         {
             motor = this.GetComponent<Motor>();
+        }
+        if (arty == null)
+        {
+            arty = this.GetComponent<Artillery>();
         }
     }
 
@@ -47,37 +52,44 @@ public class InputController : MonoBehaviour
             case InputScheme.arrowKeys:
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
-                    motor.Move(data.moveRate);
+                    motor.Move(data.GetForward());
                 }
                 if (Input.GetKey(KeyCode.DownArrow))
                 {
-                    motor.Move(-data.moveRate);
+                    motor.Move(-data.GetBackward());
                 }
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
-                    motor.Turn(-data.turnRate);
+                    motor.Turn(-data.GetTurnRate());
                 }
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    motor.Turn(data.turnRate);
+                    motor.Turn(data.GetTurnRate());
+                }
+                if (Input.GetKey(KeyCode.Space))
+                {
                 }
                 break;
             case InputScheme.WASD:
                 if (Input.GetKey(KeyCode.W))
                 {
-                    motor.Move(data.moveRate);
+                    motor.Move(data.GetForward());
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
-                    motor.Move(-data.moveRate);
+                    motor.Move(-data.GetBackward());
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
-                    motor.Turn(-data.turnRate);
+                    motor.Turn(-data.GetTurnRate());
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
-                    motor.Turn(data.turnRate);
+                    motor.Turn(data.GetTurnRate());
+                }
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    arty.Shoot();
                 }
                 break;
         }
