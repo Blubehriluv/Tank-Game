@@ -55,14 +55,15 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
-    <Compile Include="Assets\Scripts\TestController.cs" />
-    <Compile Include="Assets\Scripts\InputController.cs" />
-    <Compile Include="Assets\Scripts\Motor.cs" />
-    <Compile Include="Assets\Scripts\TankData.cs" />
-    <Compile Include="Assets\Scripts\Projectile.cs" />
-    <Compile Include="Assets\Scripts\Artillery.cs" />
-    <Compile Include="Assets\Scripts\Health.cs" />
-    <Compile Include="Assets\Scripts\AIController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\TestController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\InputController.cs" />
+    <Compile Include="Assets\Scripts\Base Tank\Motor.cs" />
+    <Compile Include="Assets\Scripts\Base Tank\TankData.cs" />
+    <Compile Include="Assets\Scripts\Controllers\AIController.cs" />
+    <Compile Include="Assets\Scripts\Base Tank\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Base Tank\Health.cs" />
+    <Compile Include="Assets\Scripts\Base Tank\Artillery.cs" />
+    <Compile Include="Assets\Scripts\AIBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
