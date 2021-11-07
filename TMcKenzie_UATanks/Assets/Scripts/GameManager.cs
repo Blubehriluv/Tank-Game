@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] bool willSpawn;
     public static GameManager instance;
+    public GameObject Player1;
+    public GameObject Player2;
 
-    // Start is called before the first frame update
+    public enum PlayMode { Single, Multi };
+    public PlayMode playMode;
+    
 
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -22,12 +28,39 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        if (willSpawn)
+        {
+            switch (playMode)
+            {
+                case PlayMode.Single:
+                    SpawnPlayers(true);
+                    break;
+                case PlayMode.Multi:
+                    SpawnPlayers(false);
+                    break;
+                default:
+                    playMode = PlayMode.Single;
+                    break;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void SpawnPlayers(bool isSinglePlayer)
+    {
+        if (isSinglePlayer)
+        {
+            Instantiate(Player1);
+            
+        }
+        else if (!isSinglePlayer)
+        {
+            // Spawn two players.
+        }
     }
 }

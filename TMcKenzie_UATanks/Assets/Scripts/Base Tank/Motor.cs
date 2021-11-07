@@ -7,7 +7,6 @@ public class Motor : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] Transform tf;
 
-    public Motor motor;
     public TankData data;
 
     void Start()
