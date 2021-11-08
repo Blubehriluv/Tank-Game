@@ -43,6 +43,11 @@ public class Projectile : MonoBehaviour
         Destroy(this.gameObject, timeToDestroy);
     }
 
+    public string GetParentName()
+    {
+        return parentObject.name;
+    }
+
     // The bullet runs into something.
     private void OnCollisionEnter(Collision collision)
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InputController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class InputController : MonoBehaviour
     public TankData data;
     public Motor motor;
     public Artillery arty;
+    UnityEvent movementEvents;
 
     void Start()
     {
