@@ -10,14 +10,30 @@ public class AIBehaviour : MonoBehaviour
     [SerializeField] public Transform chaseTF;
     public float fleeDistance = 1.0f;
     float lengthToBeSafe = 4.0f;
+    [Range(4,20)]
     private TankData data;
     private Motor motor;
 
     // Start is called before the first frame update
     void Start()
     {
-        data = gameObject.GetComponent<TankData>();
-        motor = gameObject.GetComponent<Motor>();
+        CheckForNull();
+    }
+
+    void CheckForNull()
+    {
+        if (chaseTF == null)
+        {
+            chaseTF = GameManager.instance.Player1.transform;
+        }
+        if (data == null)
+        {
+            data = this.GetComponent<TankData>();
+        }
+        if (motor == null)
+        {
+            motor = this.GetComponent<Motor>();
+        }
     }
 
     // Update is called once per frame
@@ -35,7 +51,7 @@ public class AIBehaviour : MonoBehaviour
 
         if (attackMode == AttackMode.Flee)
         {
-                Vector3 vectorAwayFromTarget = (-1 * (chaseTF.position - gameObject.transform.position));
+            Vector3 vectorAwayFromTarget = (-1 * (chaseTF.position - gameObject.transform.position));
             Vector3 fleePosition = (vectorAwayFromTarget.normalized * fleeDistance) + gameObject.transform.position;
 
             motor.RotateTowards(fleePosition, data.GetTurnRate());

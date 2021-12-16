@@ -23,6 +23,11 @@ public class Health : MonoBehaviour
         return currentHealth;
     }
 
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
     // Will this game object survive after a change in health?
     bool WillSurvive(float changeInHealth)
     {

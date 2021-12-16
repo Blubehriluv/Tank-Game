@@ -63,4 +63,9 @@ public class GameManager : MonoBehaviour
             // Spawn two players.
         }
     }
+
+    public GameObject GivePlayer()
+    {
+        return Player1;
+    }
 }
