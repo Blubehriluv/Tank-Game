@@ -6,8 +6,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] bool willSpawn;
     public static GameManager instance;
+    SpawnManager spawnManager;
     public GameObject Player1;
     public GameObject Player2;
+    public GameObject[] enemies;
 
     public enum PlayMode { Single, Multi };
     public PlayMode playMode;
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        spawnManager = this.gameObject.GetComponent<SpawnManager>();
         if (willSpawn)
         {
             switch (playMode)
@@ -43,6 +46,15 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+
+        spawnManager.SpawnTank(Player1, false);
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            spawnManager.SpawnTank(enemies[i], true);
+            i++;
+        }
+        
     }
 
     // Update is called once per frame
@@ -55,13 +67,18 @@ public class GameManager : MonoBehaviour
     {
         if (isSinglePlayer)
         {
-            Instantiate(Player1);
-            
+            //Instantiate(Player1);
+            //spawnManager.SpawnTank(Player1, false);
         }
         else if (!isSinglePlayer)
         {
             // Spawn two players.
         }
+    }
+
+    public void SomeoneDied(GameObject Tank)
+    {
+        spawnManager.SpawnTank(Tank, false);
     }
 
     public GameObject GivePlayer()

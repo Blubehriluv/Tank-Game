@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
+    /// <summary>
+    /// A timer class that gives an object a timer for use.
+    /// </summary>
+    
     [SerializeField] float timerDelay = 5.0f;
     [SerializeField] float timeUntilNextEvent;
-    // Start is called before the first frame update
+    [SerializeField] string timeIsUpMessage;
     void Start()
     {
         
@@ -15,10 +19,21 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeUntilNextEvent -= Time.deltaTime;
-        if(timeUntilNextEvent <= 0)
+        
+    }
+
+    // This runs the timer with a custom message.
+    public void CallTimer(string message)
+    {
+        if (message == "")
         {
-            Debug.Log("Timer!");
+            message = "Timer is up on " + this.gameObject.name;
+        }
+
+        timeUntilNextEvent -= Time.deltaTime;
+        if (timeUntilNextEvent <= 0)
+        {
+            Debug.Log(message);
             timeUntilNextEvent = timerDelay;
         }
     }

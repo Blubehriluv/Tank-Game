@@ -14,6 +14,7 @@ public class TankData : MonoBehaviour
     [SerializeField] float backwardRate = 3;
     [SerializeField] float turnRate = 180;
 
+    [SerializeField] bool isAGhost = false;
     void Start()
     {
         acquiredPoints = 0;
@@ -58,5 +59,31 @@ public class TankData : MonoBehaviour
     public float GetTurnRate()
     {
         return turnRate;
+    }
+
+    public void SetGhost(bool turningIntoAGhost, float ghostTime)
+    {
+        if (!turningIntoAGhost)
+        {
+            isAGhost = false;
+        }
+        else if (turningIntoAGhost)
+        {
+            isAGhost = true;
+            StartCoroutine(Wait(ghostTime));
+        }
+    }
+
+    public bool GetGhosted()
+    {
+        return isAGhost;
+    }
+
+    IEnumerator Wait(float waitTime)
+    {
+        Debug.Log("Become a ghost...");
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("Human again.");
+        SetGhost(false, 0);
     }
 }

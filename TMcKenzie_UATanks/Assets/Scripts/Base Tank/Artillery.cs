@@ -19,8 +19,12 @@ public class Artillery : MonoBehaviour
     [SerializeField] int reloadSpeed;
     [SerializeField] int ammo;
 
+
+
     float timeUntilNextEvent;
     bool canShoot;
+    int tempProjectileDamage;
+    float tempFiringDelay;
 
     void Start()
     {
@@ -28,6 +32,7 @@ public class Artillery : MonoBehaviour
         ProjectileData = bullet.GetComponent<Projectile>();
         // Sets the shoot location transform.
         locationTransform = shootLocation.GetComponent<Transform>();
+        ResetStats(0, false);
     }
 
     void Update()
@@ -57,6 +62,27 @@ public class Artillery : MonoBehaviour
         }
     }
 
+    public float GetFireRate()
+    {
+        return firingDelay;
+    }
+
+    // Sets the new fire rate.
+    public void SetFireRate(float newFireRate)
+    {
+        firingDelay = newFireRate;
+    }
+
+    public int GetDamage()
+    {
+        return projectileDamage;
+    }
+
+    public void SetDamage(int newDamage)
+    {
+        projectileDamage = newDamage;
+    }
+
     // TODO : Have a maximum ammo limit.
     public int GetAmmo()
     {
@@ -67,5 +93,27 @@ public class Artillery : MonoBehaviour
     public void SetAmmo(int giveThisAmmo)
     {
         ammo = giveThisAmmo;
+    }
+
+    public void ResetStats(float timeBeforeRevert, bool willResetStats)
+    {
+        if (!willResetStats)
+        {
+            tempFiringDelay = firingDelay;
+            tempProjectileDamage = projectileDamage;
+        }
+        else if (willResetStats == true)
+        {
+            StartCoroutine(Wait(timeBeforeRevert));
+        }
+    }
+
+    IEnumerator Wait(float waitTime)
+    {
+        Debug.Log("Waiting to reset...");
+        yield return new WaitForSeconds(waitTime);
+        Debug.Log("Resetting stats.");
+        firingDelay = tempFiringDelay;
+        projectileDamage = tempProjectileDamage;
     }
 }

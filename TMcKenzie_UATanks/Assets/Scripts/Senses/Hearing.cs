@@ -33,7 +33,7 @@ public class Hearing : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         // If it's a gunshot
         if (other.gameObject.GetComponent<Projectile>())
@@ -50,7 +50,15 @@ public class Hearing : MonoBehaviour
         // If there's movement from the player
         else if (other.gameObject.GetComponent<InputController>())
         {
-            Debug.Log("I can hear the player!");
+            if (other.gameObject.GetComponent<TankData>().GetGhosted())
+            {
+                // Ghost ability activated
+                Debug.Log("Not detecting the player.");
+            }
+            else
+            {
+                Debug.Log("I can hear the player!");
+            }
         }        
     }
 

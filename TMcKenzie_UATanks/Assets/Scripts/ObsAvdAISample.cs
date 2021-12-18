@@ -6,11 +6,14 @@ public class ObsAvdAISample : MonoBehaviour
     private Motor motor;
     private TankData data;
     private Transform tf;
+    FieldOfView FOV;
     [SerializeField] int avoidStage = 0;
     [SerializeField] float avoidTime = 2.0f;
     [SerializeField] float exitTime;
     public enum AttackMode { Chase };
     public AttackMode attackMode;
+
+    float FOVSide;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,7 @@ public class ObsAvdAISample : MonoBehaviour
         {
             target = GameManager.instance.Player1.transform;
         }
+        FOV = this.gameObject.GetComponent<FieldOfView>();
     }
 
     // Update is called once per frame
@@ -52,6 +56,12 @@ public class ObsAvdAISample : MonoBehaviour
                 DoChase();
             }
         }
+    }
+
+    void SetFieldOfViewAngles(float fieldOfView)
+    {
+        FOVSide = fieldOfView / 2;
+
     }
 
     bool CanMove (float speed)
@@ -86,12 +96,83 @@ public class ObsAvdAISample : MonoBehaviour
     {
         if (avoidStage == 1)
         {
-            motor.Turn(-1 * data.GetTurnRate());
+            RaycastHit hitLeft;
+            RaycastHit hitRight;
+            RaycastHit forwardToTarget;
+            RaycastHit forward;
+            Vector3 leftVector = new Vector3(tf.position.x, tf.rotation.y - FOVSide, tf.position.z);
+            Vector3 rightVector = new Vector3(tf.position.x, tf.rotation.y + FOVSide, tf.position.z);
+            
+            
+            if (Physics.Raycast(tf.position, tf.forward, out forward))
+            {
+                if (Physics.Raycast(tf.position, target.position, out forwardToTarget))
+                {
+                    float minRange = forward.point.y - FOVSide;
+                    float maxRange = forward.point.y + FOVSide;
+
+                    // Checks if the target is within the vision
+                    if (forwardToTarget.point.y! > maxRange && forwardToTarget.point.y! < minRange)
+                    {
+                        // Positive line
+                        if (minRange > 0)
+                        {
+                            if (forwardToTarget.point.y - minRange > maxRange - forwardToTarget.point.y)
+                            {
+                                motor.Turn(-1 * data.GetTurnRate());
+                                // turn right
+                            }
+                        }
+                        // Negative line
+                        else if (maxRange < 0)
+                        {
+                            if (maxRange + forwardToTarget.point.y > forwardToTarget.point.y + -minRange)
+                            {
+                                motor.Turn(1 * data.GetTurnRate());
+                                // go left
+                            }
+                        }
+                        else
+                        {
+                            motor.Turn(1 * data.GetTurnRate());
+                        }
+                    }
+                    
+                    else
+                    {
+                        float leftAngle, rightAngle;
+                        if (Physics.Raycast(tf.position, leftVector, out hitLeft, data.GetForward()))
+                        {
+                            leftAngle = Vector3.Angle(target.position, leftVector);
+
+                            if (Physics.Raycast(tf.position, rightVector, out hitRight, data.GetForward()))
+                            {
+                                rightAngle = Vector3.Angle(target.position, rightVector);
+
+                                if (rightAngle > leftAngle)
+                                {
+                                    motor.Turn(1 * data.GetTurnRate());
+                                }
+                                else
+                                {
+                                    motor.Turn(-1 * data.GetTurnRate());
+                                }
+                            }
+                        }
+                        else
+                        {
+                            motor.Turn(-1 * data.GetTurnRate());
+                            // ADD A KICKER OUT TO CHANGE THE STAGE NUMBER PLEASE
+                        }
+                        
+                        
+                    }   
+                }
+            }
 
             if (CanMove(data.GetForward()))
             {
                 avoidStage = 2;
-
                 exitTime = avoidTime;
             }
         }
