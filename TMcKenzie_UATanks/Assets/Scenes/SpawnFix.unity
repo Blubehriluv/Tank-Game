@@ -333,6 +333,7 @@ MonoBehaviour:
   - {fileID: 4971761846586714731, guid: 17d4513d056db15448e3595abc5aa5c4, type: 3}
   - {fileID: 637078489887003030, guid: e95bc1107d9e77a478ffc1dec6e3c202, type: 3}
   - {fileID: 1589668500828603402, guid: 1880cd08e88cf4644b15e66a4936239d, type: 3}
+  - {fileID: 288308455508352000, guid: 83487f83df99b9d4ca96aba95fe1322f, type: 3}
   mapSeed: 0
   isMapOfTheDay: 1
 --- !u!1 &1574112495
