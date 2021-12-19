@@ -12,7 +12,7 @@ public class CamController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
     }

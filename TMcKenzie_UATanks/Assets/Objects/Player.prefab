@@ -236,7 +236,7 @@ MonoBehaviour:
   hitValue: 25
   killValue: 100
   acquiredPoints: 0
-  forwardRate: 5
+  forwardRate: 7
   backwardRate: 3
   turnRate: 180
   isAGhost: 0

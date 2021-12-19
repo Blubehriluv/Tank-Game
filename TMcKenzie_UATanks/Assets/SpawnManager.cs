@@ -42,6 +42,7 @@ public class SpawnManager : MonoBehaviour
         {
             int tempIndex = RandomNumber(0, openLocations.Count);
             Instantiate(Tank, openLocations[tempIndex].position, openLocations[tempIndex].rotation);
+            openLocations.RemoveAt(tempIndex);
         }
         else
         {
@@ -49,6 +50,7 @@ public class SpawnManager : MonoBehaviour
             {
                 int tempIndex = RandomNumber(0, openLocations.Count);
                 Instantiate(GameManager.instance.enemies[RandomNumber(0, GameManager.instance.enemies.Length)], openLocations[tempIndex].position, openLocations[tempIndex].rotation );
+                openLocations.RemoveAt(tempIndex);
             }
         }
     }

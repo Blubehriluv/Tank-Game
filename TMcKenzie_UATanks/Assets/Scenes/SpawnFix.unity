@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: b424ae3299635824ba6a4834ac3aef3f,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -223,6 +224,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1574112496}
     m_Modifications:
+    - target: {fileID: 1195894312308397357, guid: 91e9362d5fece0540868c54499ea2f85,
+        type: 3}
+      propertyPath: enemies.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195894312308397357, guid: 91e9362d5fece0540868c54499ea2f85,
+        type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 196794812506015712, guid: f396a4ed9eec9f24ca5d1c0b04ff62f4,
+        type: 3}
+    - target: {fileID: 1195894312308397357, guid: 91e9362d5fece0540868c54499ea2f85,
+        type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 5310350139987054603, guid: c736146ff770f9f499f9ab39f1b84007,
+        type: 3}
+    - target: {fileID: 1195894312308397357, guid: 91e9362d5fece0540868c54499ea2f85,
+        type: 3}
+      propertyPath: enemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 4813086556968070844, guid: ff15dbfbc8f308142a10de6754c27678,
+        type: 3}
     - target: {fileID: 1195894312308397358, guid: 91e9362d5fece0540868c54499ea2f85,
         type: 3}
       propertyPath: m_RootOrder
@@ -325,8 +349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b4e6636b1aff848932e0aeb181d01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 6
-  cols: 6
+  rows: 3
+  cols: 3
   gridPrefabs:
   - {fileID: 765782953075519654, guid: 0b687e1125e3b564d85044d2d4e6f35c, type: 3}
   - {fileID: 6344592649128188161, guid: a401fa8d0742b7b47b4cf62e1ac953c3, type: 3}

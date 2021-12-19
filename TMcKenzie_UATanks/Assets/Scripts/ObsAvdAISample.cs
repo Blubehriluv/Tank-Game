@@ -92,6 +92,7 @@ public class ObsAvdAISample : MonoBehaviour
         }
     }
 
+    /*
     void DoAvoid()
     {
         if (avoidStage == 1)
@@ -102,7 +103,6 @@ public class ObsAvdAISample : MonoBehaviour
             RaycastHit forward;
             Vector3 leftVector = new Vector3(tf.position.x, tf.rotation.y - FOVSide, tf.position.z);
             Vector3 rightVector = new Vector3(tf.position.x, tf.rotation.y + FOVSide, tf.position.z);
-            
             
             if (Physics.Raycast(tf.position, tf.forward, out forward))
             {
@@ -158,13 +158,14 @@ public class ObsAvdAISample : MonoBehaviour
                                     motor.Turn(-1 * data.GetTurnRate());
                                 }
                             }
+                            motor.Turn(-1 * data.GetTurnRate());
                         }
                         else
                         {
                             motor.Turn(-1 * data.GetTurnRate());
                             // ADD A KICKER OUT TO CHANGE THE STAGE NUMBER PLEASE
                         }
-                        
+                        motor.Turn(-1 * data.GetTurnRate());
                         
                     }   
                 }
@@ -190,6 +191,47 @@ public class ObsAvdAISample : MonoBehaviour
             }
             else
             {
+                avoidStage = 1;
+            }
+        }
+    }*/
+
+    void DoAvoid()
+    {
+        if (avoidStage == 1)
+        {
+            // Rotate left
+            motor.Turn(-1 * data.GetTurnRate());
+
+            // If I can now move forward, move to stage 2!
+            if (CanMove(data.GetForward()))
+            {
+                avoidStage = 2;
+
+                // Set the number of seconds we will stay in Stage2
+                exitTime = avoidTime;
+            }
+
+            // Otherwise, we'll do this again next turn!
+        }
+        else if (avoidStage == 2)
+        {
+            // if we can move forward, do so
+            if (CanMove(data.GetForward()))
+            {
+                // Subtract from our timer and move
+                exitTime -= Time.deltaTime;
+                motor.Move(data.GetForward());
+
+                // If we have moved long enough, return to chase mode
+                if (exitTime <= 0)
+                {
+                    avoidStage = 0;
+                }
+            }
+            else
+            {
+                // Otherwise, we can't move forward, so back to stage 1
                 avoidStage = 1;
             }
         }

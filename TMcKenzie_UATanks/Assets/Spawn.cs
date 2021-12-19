@@ -60,7 +60,9 @@ public class Spawn : MonoBehaviour
             if (spawnType == SpawnType.Pickup)
             {
                 if (other.gameObject.GetComponent<Pickup>())
+                    
                 {
+                    Debug.Log("something left and it was a :" + other.name);
                     StartCoroutine(WaitForPickup(other.gameObject.GetComponent<Pickup>().GetRespawnTime()));
                 }
             }

@@ -130,7 +130,7 @@ MonoBehaviour:
   hitValue: 400
   killValue: 1000
   acquiredPoints: 0
-  forwardRate: 4
+  forwardRate: 7
   backwardRate: 3
   turnRate: 180
   isAGhost: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408123288806052795}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e671cd820985a8c4da8ede0ea11d570c, type: 3}
   m_Name: 
@@ -202,14 +202,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2408123288806052795}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8bc99d0b2e716d48856a168f076bc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hearingRange: 30
   collider: {fileID: 7380980325496587765}
-  parentObject: {fileID: 0}
+  parentObject: {fileID: 2408123288806052795}
 --- !u!1 &8418137247341448653
 GameObject:
   m_ObjectHideFlags: 0

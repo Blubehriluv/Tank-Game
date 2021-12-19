@@ -45,6 +45,7 @@ public class Pickup : MonoBehaviour
         artillery.SetFireRate(artillery.GetFireRate() / 2);
         artillery.SetDamage(artillery.GetDamage() - 14);
         artillery.ResetStats(activationTime, true);
+
     }
 
     void Stealth(TankData data)
