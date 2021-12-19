@@ -16,6 +16,7 @@ public class SpawnManager : MonoBehaviour
         spawnLocations = new List<Transform>();
         
         InitializeLocations();
+        CheckLocations();
     }
 
     // Update is called once per frame
@@ -28,31 +29,25 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < spawnPoints.Length; i++)
         {
-            spawnLocations.Add(spawnPoints[i].GetComponent<Transform>());
-            if (spawnPoints[i].GetComponent<Spawn>().TypeOfSpawn() == true)
-            {
-                openLocations.Add(spawnLocations[i].GetComponent<Transform>());
-                break;
-            }
+            spawnLocations.Add(spawnPoints[i].GetComponent<Transform>().transform);
+
         }
     }
-
-    
 
     public void SpawnTank(GameObject Tank, bool isMultiple)
     {
         CheckLocations();
         if (!isMultiple)
         {
-            Instantiate(Tank, openLocations[RandomNumber(0, openLocations.Count)]);
-
+            int tempIndex = RandomNumber(0, openLocations.Count);
+            Instantiate(Tank, openLocations[tempIndex].position, openLocations[tempIndex].rotation);
         }
         else
         {
             for (int i = 0; i < enemiesToSpawn; i++)
             {
-                Instantiate(GameManager.instance.enemies[RandomNumber(0, GameManager.instance.enemies.Length)], openLocations[RandomNumber(0, openLocations.Count)]);
-                i++;
+                int tempIndex = RandomNumber(0, openLocations.Count);
+                Instantiate(GameManager.instance.enemies[RandomNumber(0, GameManager.instance.enemies.Length)], openLocations[tempIndex].position, openLocations[tempIndex].rotation );
             }
         }
     }
@@ -60,22 +55,23 @@ public class SpawnManager : MonoBehaviour
     void CheckLocations()
     {
         openLocations = new List<Transform>();
-        int temp = 0;
-
         Debug.Log("we in here");
-
-        while(openLocations != null)
+        Debug.Log($"spawn location count is {spawnLocations.Count}");
+        for (int i = 0; i < spawnLocations.Count; i++)
         {
-            for (int i = 0; i < spawnLocations.Count; i++)
+            if (spawnLocations[i].gameObject.GetComponent<Spawn>().TypeOfSpawn())
             {
-                openLocations.Add(spawnLocations[i].GetComponent<Transform>());
-                temp++;
+                Debug.Log($"spawnLocation at index {i} returns true type of spawn.");
+                Debug.Log($"spawnLocation at index {i} has an occupation check of: {spawnLocations[i].GetComponent<Spawn>().OccupationCheck()}");
+                if (!spawnLocations[i].GetComponent<Spawn>().OccupationCheck())
+                {
+                    Debug.Log($"spawnLocations at index {i} is not occupied. Adding to open locations.");
+                    
+                    openLocations.Add(spawnPoints[i].GetComponent<Transform>());
+                    //continue;
+                }
             }
         }
-        bool tempBool = spawnPoints[temp].gameObject.GetComponent<Spawn>().TypeOfSpawn();
-        Debug.Log(tempBool);
-        
-        
     }
 
     int RandomNumber(int min, int max)

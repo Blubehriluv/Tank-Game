@@ -13,7 +13,7 @@ public class Spawn : MonoBehaviour
     bool isForTank;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (spawnType == SpawnType.Tank)
         {
@@ -29,7 +29,7 @@ public class Spawn : MonoBehaviour
 
     void SpawnSomething()
     {
-
+        
     }
 
     public bool TypeOfSpawn()

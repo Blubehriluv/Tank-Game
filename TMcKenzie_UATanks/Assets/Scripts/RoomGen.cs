@@ -12,7 +12,7 @@ public class RoomGen : MonoBehaviour
     private Room[,] grid;
     public GameObject[] gridPrefabs;
     public int mapSeed;
-    bool isMapOfTheDay = true;
+    public bool isMapOfTheDay = true;
 
     //mines expire over time
     //pad gives better damage
@@ -23,11 +23,25 @@ public class RoomGen : MonoBehaviour
     {
         // Generate Grid
         GenerateGrid();
+
+
         UnityEngine.Random.seed = DateToInt(DateTime.Now);
         if (isMapOfTheDay)
         {
-            mapSeed = DateToInt(DateTime.Now.Date);
+            //mapSeed = DateToInt(DateTime.Now.Date);
+            GetRoomOfTheDay();
         }
+        else
+        {
+            UnityEngine.Random.seed = DateToInt(DateTime.Now);
+        }
+    }
+
+    public void GetRoomOfTheDay()
+    {
+
+        mapSeed = GameManager.instance.MOTD;
+
     }
 
     public void GenerateGrid()

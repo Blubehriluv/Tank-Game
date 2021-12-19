@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
     public GameObject[] enemies;
+    public int MOTD = 428;
 
     public enum PlayMode { Single, Multi };
     public PlayMode playMode;
