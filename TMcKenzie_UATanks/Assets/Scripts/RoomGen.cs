@@ -27,22 +27,53 @@ public class RoomGen : MonoBehaviour
     public void GetRoomOfTheDay()
     {
 
-        mapSeed = GameManager.instance.MOTD;
+        //mapSeed = GameManager.instance.MOTD;
 
+        
+
+    }
+
+    private void SetMapSeed()
+    {
+        //Set seed based on what the user selected in the menus
+        switch (SetupManager.instance.Map)
+        {
+            case SetupManager.MapType.Random:
+                mapSeed = DateToInt(DateTime.Now);
+                break;
+
+            case SetupManager.MapType.Daily:
+                //Use the current date as the map seed
+                mapSeed = DateToInt(DateTime.Now.Date);
+                break;
+
+            case SetupManager.MapType.Seeded:
+                mapSeed = SetupManager.instance.GetPlayerMapSeed();
+                break;
+
+            default:
+                Debug.Log("Map type not integrated in Room Generator script.");
+                break;
+        }
     }
 
     public void GenerateGrid()
     {
-        UnityEngine.Random.seed = DateToInt(DateTime.Now);
-        if (isMapOfTheDay)
-        {
-            //mapSeed = DateToInt(DateTime.Now.Date);
-            GetRoomOfTheDay();
-        }
-        else
-        {
-            UnityEngine.Random.seed = DateToInt(DateTime.Now);
-        }
+        //UnityEngine.Random.seed = DateToInt(DateTime.Now);
+        //if (isMapOfTheDay)
+        //{
+        //    //mapSeed = DateToInt(DateTime.Now.Date);
+        //    GetRoomOfTheDay();
+        //}
+        //else
+        //{
+        //    UnityEngine.Random.seed = DateToInt(DateTime.Now);
+        //}
+
+        //Set the map seed based on what the player selected at start up
+        SetMapSeed();
+
+        UnityEngine.Random.seed = mapSeed;
 
         // Clear out the grid
         grid = new Room[rows, cols];
