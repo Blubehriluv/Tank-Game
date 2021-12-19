@@ -5,7 +5,6 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     public GameObject pickup;
-    GameObject enemy;
     public enum SpawnType {Tank, Pickup};
     public SpawnType spawnType;
 
@@ -19,6 +18,10 @@ public class Spawn : MonoBehaviour
         {
             isForTank = true;
         }
+        else if (spawnType == SpawnType.Pickup)
+        {
+            Instantiate(pickup, this.gameObject.transform.position, this.gameObject.transform.rotation);
+        }
     }
 
     // Update is called once per frame
@@ -27,22 +30,9 @@ public class Spawn : MonoBehaviour
         
     }
 
-    void SpawnSomething()
-    {
-        
-    }
-
     public bool TypeOfSpawn()
     {
         return isForTank;
-    }
-
-    public void EmptyAlert()
-    {
-        if (spawnType == SpawnType.Pickup)
-        {
-
-        }
     }
 
     public void ToggleOccupation()

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool willSpawn;
     public static GameManager instance;
     SpawnManager spawnManager;
+    RoomGen roomGenerator;
     public GameObject Player1;
     public GameObject Player2;
     public GameObject[] enemies;
@@ -31,7 +32,10 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        roomGenerator = this.gameObject.GetComponent<RoomGen>();
+        roomGenerator.GenerateGrid();
         spawnManager = this.gameObject.GetComponent<SpawnManager>();
+        spawnManager.InitializeLocations();
         if (willSpawn)
         {
             switch (playMode)

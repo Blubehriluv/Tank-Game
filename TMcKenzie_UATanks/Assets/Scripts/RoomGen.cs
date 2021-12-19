@@ -21,20 +21,7 @@ public class RoomGen : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // Generate Grid
         GenerateGrid();
-
-
-        UnityEngine.Random.seed = DateToInt(DateTime.Now);
-        if (isMapOfTheDay)
-        {
-            //mapSeed = DateToInt(DateTime.Now.Date);
-            GetRoomOfTheDay();
-        }
-        else
-        {
-            UnityEngine.Random.seed = DateToInt(DateTime.Now);
-        }
     }
 
     public void GetRoomOfTheDay()
@@ -46,6 +33,17 @@ public class RoomGen : MonoBehaviour
 
     public void GenerateGrid()
     {
+        UnityEngine.Random.seed = DateToInt(DateTime.Now);
+        if (isMapOfTheDay)
+        {
+            //mapSeed = DateToInt(DateTime.Now.Date);
+            GetRoomOfTheDay();
+        }
+        else
+        {
+            UnityEngine.Random.seed = DateToInt(DateTime.Now);
+        }
+
         // Clear out the grid
         grid = new Room[rows, cols];
 

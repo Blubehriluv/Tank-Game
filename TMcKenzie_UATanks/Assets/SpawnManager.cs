@@ -9,14 +9,13 @@ public class SpawnManager : MonoBehaviour
     public List<Transform> openLocations;
     [SerializeField] int enemiesToSpawn;
 
+
     // Start is called before the first frame update
     void Start()
     {
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         spawnLocations = new List<Transform>();
         
-        InitializeLocations();
-        CheckLocations();
     }
 
     // Update is called once per frame
@@ -25,13 +24,15 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    void InitializeLocations()
+    public void InitializeLocations()
     {
+        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        spawnLocations = new List<Transform>();
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             spawnLocations.Add(spawnPoints[i].GetComponent<Transform>().transform);
-
         }
+        CheckLocations();
     }
 
     public void SpawnTank(GameObject Tank, bool isMultiple)
@@ -55,17 +56,13 @@ public class SpawnManager : MonoBehaviour
     void CheckLocations()
     {
         openLocations = new List<Transform>();
-        Debug.Log("we in here");
-        Debug.Log($"spawn location count is {spawnLocations.Count}");
         for (int i = 0; i < spawnLocations.Count; i++)
         {
             if (spawnLocations[i].gameObject.GetComponent<Spawn>().TypeOfSpawn())
             {
-                Debug.Log($"spawnLocation at index {i} returns true type of spawn.");
-                Debug.Log($"spawnLocation at index {i} has an occupation check of: {spawnLocations[i].GetComponent<Spawn>().OccupationCheck()}");
+
                 if (!spawnLocations[i].GetComponent<Spawn>().OccupationCheck())
                 {
-                    Debug.Log($"spawnLocations at index {i} is not occupied. Adding to open locations.");
                     
                     openLocations.Add(spawnPoints[i].GetComponent<Transform>());
                     //continue;
