@@ -81,6 +81,8 @@
     <Compile Include="Assets\Scripts\Senses\Vision.cs" />
     <Compile Include="Assets\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\RoomGen.cs" />
+    <Compile Include="Assets\Scripts\MainScreenRotate.cs" />
+    <Compile Include="Assets\Scripts\SceneChange.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Imported Assets\LowPolyTreePack\README.txt" />

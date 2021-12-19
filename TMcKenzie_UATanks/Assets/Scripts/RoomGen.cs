@@ -21,7 +21,7 @@ public class RoomGen : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GenerateGrid();
+
     }
 
     public void GetRoomOfTheDay()
