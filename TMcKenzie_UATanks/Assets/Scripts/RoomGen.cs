@@ -60,18 +60,6 @@ public class RoomGen : MonoBehaviour
 
     public void GenerateGrid()
     {
-        //UnityEngine.Random.seed = DateToInt(DateTime.Now);
-        //if (isMapOfTheDay)
-        //{
-        //    //mapSeed = DateToInt(DateTime.Now.Date);
-        //    GetRoomOfTheDay();
-        //}
-        //else
-        //{
-        //    UnityEngine.Random.seed = DateToInt(DateTime.Now);
-        //}
-
-        //Set the map seed based on what the player selected at start up
         SetMapSeed();
 
         UnityEngine.Random.seed = mapSeed;
