@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
+
 public class RoomGen : MonoBehaviour
 {
     public int rows;
@@ -36,7 +37,7 @@ public class RoomGen : MonoBehaviour
     private void SetMapSeed()
     {
         //Set seed based on what the user selected in the menus
-        switch (SetupManager.instance.Map)
+        switch (SetupManager.instance.GetMapType())
         {
             case SetupManager.MapType.Random:
                 mapSeed = DateToInt(DateTime.Now);

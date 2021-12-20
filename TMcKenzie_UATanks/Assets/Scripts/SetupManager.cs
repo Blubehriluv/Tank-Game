@@ -9,6 +9,11 @@ public class SetupManager : MonoBehaviour
 
     [SerializeField] private Dropdown mapTypeDrop;         //dropdown for user-selected maptype
     [SerializeField] private InputField mapSeedInput;      //input field for map seed
+    [SerializeField] private GameObject screenSelectionObject;  //parent of split screen options
+    [SerializeField] private Toggle[] playerToggles;
+    [SerializeField] private Toggle horizontalScreenToggle;
+    [SerializeField] private Toggle verticalScreenToggle;
+
 
     //Types of maps available to the player, as reflected in drop down menu
     public enum MapType {
@@ -16,10 +21,17 @@ public class SetupManager : MonoBehaviour
         Daily,
         Seeded }
     //The actual selected map type, defaulted to random
-    public MapType Map = MapType.Random;
+    private MapType Map = MapType.Random;
 
     private int playerMapSeed = 0;
+    private int numberOfPlayers = 1;
 
+    public enum ScreenType {
+        Full,
+        Horizontal,
+        Vertical    
+    }
+    private ScreenType screen = ScreenType.Full;
 
     private void Awake()
     {
@@ -48,16 +60,19 @@ public class SetupManager : MonoBehaviour
             //Drop down option at index 0 = "Random"
             case 0:
                 Map = MapType.Random;
+                mapSeedInput.gameObject.SetActive(false);
                 break;
 
             //Drop down option at index 1 = "Map of the Day" 
             case 1:
                 Map = MapType.Daily;
+                mapSeedInput.gameObject.SetActive(false);
                 break;
 
             //Drop down option at index 2 = "Seeded"
             case 2:
                 Map = MapType.Seeded;
+                mapSeedInput.gameObject.SetActive(true);
                 break;
 
             //Default case
@@ -87,6 +102,35 @@ public class SetupManager : MonoBehaviour
         //Debug.Log("Seed is: " + playerMapSeed);
     }
 
+    //Called on value changed from player toggles
+    public void SetNumberOfPlayers()
+    {
+        //Search all player toggles
+        for (int i = 0; i < playerToggles.Length; i++)
+        {
+            //If we find the one that is on (note: only one can be on at a time)
+            if (playerToggles[i].isOn)
+            {
+                //player number is that index + 1
+                numberOfPlayers = i + 1;
+
+                //end loop
+                break;
+            }
+        }
+
+        //If more than 1 player, activate split screen options
+        if (numberOfPlayers > 1)
+        {
+            screenSelectionObject.SetActive(true);
+        }
+
+        //else 1 player, disable splitscreen options
+        else
+        {
+            screenSelectionObject.SetActive(false);
+        }
+    }
 
     public MapType GetMapType()
     {
@@ -96,6 +140,38 @@ public class SetupManager : MonoBehaviour
     public int GetPlayerMapSeed()
     {
         return playerMapSeed;
+    }
+
+    public int GetNumberOfPlayers()
+    {
+        return numberOfPlayers;
+    }
+
+    //Called by start button after selections are complete
+    public void SetScreenType()
+    {
+        //Full screen for single player mode
+        if (numberOfPlayers == 1)
+        {
+            screen = ScreenType.Full;
+        }
+
+        //Horizontal screen if selected
+        else if (horizontalScreenToggle.isOn)
+        {
+            screen = ScreenType.Horizontal;
+        }
+        
+        //Vertical screen if selected
+        else if (verticalScreenToggle.isOn)
+        {
+            screen = ScreenType.Vertical;
+        }
+    }
+
+    public ScreenType GetScreenType()
+    {
+        return screen;
     }
 
 }

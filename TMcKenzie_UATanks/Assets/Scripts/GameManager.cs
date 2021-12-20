@@ -31,9 +31,7 @@ public class GameManager : MonoBehaviour
         }
     }
     void Start()
-    {
-        //Get player selection values from menu scenes   
-
+    {   
         roomGenerator = this.gameObject.GetComponent<RoomGen>();
         roomGenerator.GenerateGrid();
         spawnManager = this.gameObject.GetComponent<SpawnManager>();
@@ -59,7 +57,6 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             spawnManager.SpawnTank(enemies[i], true);
-            i++;
         }
         
     }

@@ -44,6 +44,7 @@ public class SpawnManager : MonoBehaviour
             Instantiate(Tank, openLocations[tempIndex].position, openLocations[tempIndex].rotation);
             openLocations.RemoveAt(tempIndex);
         }
+        //TODO: Remove isMultiple; remove for loop
         else
         {
             for (int i = 0; i < enemiesToSpawn; i++)
