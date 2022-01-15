@@ -18,6 +18,11 @@ public class Vision : MonoBehaviour
         CanSee(GameManager.instance.Player1);
     }
 
+    public float GetFOV()
+    {
+        return fieldOfView;
+    }
+
     public bool CanSee(GameObject target)
     {
         Vector3 agentToTargetVector = target.transform.position - tf.position;

@@ -73,6 +73,7 @@ public class Health : MonoBehaviour
     // Death.
     void Death()
     {
+        GameManager.instance.SomeoneDied(this.gameObject);
         Destroy(this.gameObject);
     }
 }
