@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &250424915989130143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 250424915989130141}
+  - component: {fileID: 250424915989130140}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &250424915989130141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250424915989130143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &250424915989130140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250424915989130143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b84109255bd6a40a4d4998e266f494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  Effects:
+  - name: Back
+    clip: {fileID: 8300000, guid: 401cc8ee4db76034da56c0f608cc6a09, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Select
+    clip: {fileID: 8300000, guid: e47f302873a22544289c9c51ecbd9b0a, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Start
+    clip: {fileID: 8300000, guid: 60c0cd91eb68ab74dbbf9fc6a759e772, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Exit
+    clip: {fileID: 8300000, guid: a075a68b63448924cb4973708530bcb6, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+  Music:
+  - name: Mythica
+    clip: {fileID: 8300000, guid: dd6e4b5ccaa1d1a4fb7504c9c791aefa, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Hero Immortal
+    clip: {fileID: 8300000, guid: cb46d3c4f9adf764dba57b41f29a08f6, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    loop: 0

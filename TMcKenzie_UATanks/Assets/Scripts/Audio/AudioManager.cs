@@ -21,7 +21,6 @@ public class AudioManager : MonoBehaviour
     {
         effectSlider.onValueChanged.AddListener(delegate { EffectsVolumeChanged(); });
         musicSlider.onValueChanged.AddListener(delegate { MusicVolumeChanged(); });
-        PlaySound("Select");
         PlayMusic("Mythica");
     }
 
@@ -60,7 +59,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-        public void PlayMusic(string name)
+    public void PlayMusic(string name)
     {
         // here we get the Sound from our array with the name passed in the methods parameters
         Sound s = System.Array.Find(Music, sound => sound.name == name);
@@ -71,6 +70,19 @@ public class AudioManager : MonoBehaviour
         }
         // This will play the sound
         s.source.Play();
+    }
+
+    public void StopMusic(string name)
+    {
+        // here we get the Sound from our array with the name passed in the methods parameters
+        Sound s = System.Array.Find(Music, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("Unable to stop music " + name);
+            return;
+        }
+        // This will play the sound
+        s.source.Stop();
     }
 
     public void PlaySound(string name)
