@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -82,7 +80,12 @@ public class Projectile : MonoBehaviour
             Debug.Log(parentObject.name + " dealt " + projDamage + " damage to " + collision.gameObject.name);
 
             // The projectile dies immediately upon impact.
-            DestroySelf(0);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            // Hit random object,
+            Destroy(this.gameObject);
         }
     }
 }

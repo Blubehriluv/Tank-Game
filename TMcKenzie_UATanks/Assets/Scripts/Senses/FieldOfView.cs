@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
@@ -24,7 +23,7 @@ public class FieldOfView : MonoBehaviour
     {
         WaitForSeconds wait = new WaitForSeconds(blinkTime);
 
-        while(true)
+        while (true)
         {
             yield return wait;
             FOVCheck();

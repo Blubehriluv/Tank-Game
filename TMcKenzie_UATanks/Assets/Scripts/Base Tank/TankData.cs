@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TankData : MonoBehaviour
@@ -25,7 +24,7 @@ public class TankData : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     // Returns the hit point value of this game object.

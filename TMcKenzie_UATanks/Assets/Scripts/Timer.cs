@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
@@ -7,19 +5,19 @@ public class Timer : MonoBehaviour
     /// <summary>
     /// A timer class that gives an object a timer for use.
     /// </summary>
-    
+
     [SerializeField] float timerDelay = 5.0f;
     [SerializeField] float timeUntilNextEvent;
     [SerializeField] string timeIsUpMessage;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // This runs the timer with a custom message.

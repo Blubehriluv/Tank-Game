@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -14,7 +12,7 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     // Getter for the health of this game object.

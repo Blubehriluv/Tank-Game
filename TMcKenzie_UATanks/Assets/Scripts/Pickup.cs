@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class Pickup : MonoBehaviour
 {
     /// <summary>
     /// Script to manage all pickup data
     /// </summary>
-    [SerializeField] 
-    public enum PickupType {RapidFire, Stealth, Mine, FireRateUp, Switcheroonie};
+    [SerializeField]
+    public enum PickupType { RapidFire, Stealth, Mine, FireRateUp, Switcheroonie };
     public PickupType pickupType;
     [SerializeField] Collider collider;
     [SerializeField] float respawnTime;
@@ -29,11 +26,11 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Sets the pickup type for the pickup gameobject
-    
+
     public float GetRespawnTime()
     {
         return respawnTime;
@@ -99,7 +96,7 @@ public class Pickup : MonoBehaviour
 
         if (collision.gameObject.GetComponent<TankData>())
         {
-            
+
         }
 
         Destroy(this.gameObject);

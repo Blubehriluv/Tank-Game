@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,13 +14,13 @@ public class SpawnManager : MonoBehaviour
     {
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         spawnLocations = new List<Transform>();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void InitializeLocations()
@@ -50,7 +49,7 @@ public class SpawnManager : MonoBehaviour
             for (int i = 0; i < enemiesToSpawn; i++)
             {
                 int tempIndex = RandomNumber(0, openLocations.Count);
-                Instantiate(GameManager.instance.enemies[RandomNumber(0, GameManager.instance.enemies.Length)], openLocations[tempIndex].position, openLocations[tempIndex].rotation );
+                Instantiate(GameManager.instance.enemies[RandomNumber(0, GameManager.instance.enemies.Length)], openLocations[tempIndex].position, openLocations[tempIndex].rotation);
                 openLocations.RemoveAt(tempIndex);
             }
         }
@@ -66,7 +65,7 @@ public class SpawnManager : MonoBehaviour
 
                 if (!spawnLocations[i].GetComponent<Spawn>().OccupationCheck())
                 {
-                    
+
                     openLocations.Add(spawnPoints[i].GetComponent<Transform>());
                     //continue;
                 }

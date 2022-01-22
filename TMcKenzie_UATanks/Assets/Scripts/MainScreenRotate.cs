@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MainScreenRotate : MonoBehaviour
 {
     Transform tf;
-    float degreesPerSecond = 20; 
+    float degreesPerSecond = 20;
     // Start is called before the first frame update
     void Start()
     {

@@ -1,6 +1,5 @@
-using UnityEngine;
-using System.Collections;
 using System;
+using UnityEngine;
 
 
 public class RoomGen : MonoBehaviour
@@ -30,7 +29,7 @@ public class RoomGen : MonoBehaviour
 
         //mapSeed = GameManager.instance.MOTD;
 
-        
+
 
     }
 

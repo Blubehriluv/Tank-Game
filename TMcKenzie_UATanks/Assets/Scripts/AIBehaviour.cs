@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AIBehaviour : MonoBehaviour
 {
-    [SerializeField] public enum AttackMode {Chase, Flee, Idle };
+    [SerializeField] public enum AttackMode { Chase, Flee, Idle };
     public AttackMode attackMode;
     [SerializeField] enum Personality { Bold, Scared };
     [SerializeField] public Transform chaseTF;
     public float fleeDistance = 1.0f;
     float lengthToBeSafe = 4.0f;
-    [Range(4,20)]
+    [Range(4, 20)]
     private TankData data;
     private Motor motor;
 

@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] bool willSpawn;
     public static GameManager instance;
+
     SpawnManager spawnManager;
     RoomGen roomGenerator;
+    public GameObject pauseMenu;
     public GameObject Player1;
     public GameObject Player2;
     public GameObject[] enemies;
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public enum PlayMode { Single, Multi };
     public PlayMode playMode;
-    
+
 
     void Awake()
     {
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
         }
     }
     void Start()
-    {   
+    {
         roomGenerator = this.gameObject.GetComponent<RoomGen>();
         roomGenerator.GenerateGrid();
         spawnManager = this.gameObject.GetComponent<SpawnManager>();
@@ -58,13 +59,26 @@ public class GameManager : MonoBehaviour
         {
             spawnManager.SpawnTank(enemies[i], true);
         }
-        
+
+        pauseMenu.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseMenu.activeSelf)
+            {
+                pauseMenu.SetActive(false);
+            }
+            else
+            {
+                pauseMenu.SetActive(true);
+            }
+            
+        }
     }
 
     void SpawnPlayers(bool isSinglePlayer)

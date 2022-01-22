@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class TestAI : MonoBehaviour
 {
-    [SerializeField] public enum BehaviorState
+    [SerializeField]
+    public enum BehaviorState
     {
         STATE_PATROLLING,
         STATE_CHASING,
@@ -16,7 +17,7 @@ public class TestAI : MonoBehaviour
     }
 
 
-    
+
 
     // Update is called once per frame
     void Update()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Hearing : MonoBehaviour
@@ -16,13 +14,13 @@ public class Hearing : MonoBehaviour
         collider.radius = hearingRange;
         // Obtains the parent object
         parentObject = gameObject.transform.parent.gameObject;
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void NullChecker()
@@ -59,7 +57,7 @@ public class Hearing : MonoBehaviour
             {
                 Debug.Log("I can hear the player!");
             }
-        }        
+        }
     }
 
     private void OnTriggerExit(Collider other)

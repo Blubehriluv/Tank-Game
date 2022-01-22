@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    [SerializeField] public enum PatrolScheme {Stop, Loop, PingPong, Idle};
+    [SerializeField] public enum PatrolScheme { Stop, Loop, PingPong, Idle };
     public PatrolScheme patrolScheme;
     public TankData data;
     public Motor motor;

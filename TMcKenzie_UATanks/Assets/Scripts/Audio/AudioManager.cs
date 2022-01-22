@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Audio;
-using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-
     public Slider effectSlider;
     public Slider musicSlider;
     public Sound[] Effects;
@@ -28,16 +25,16 @@ public class AudioManager : MonoBehaviour
     {
 
         if (instance == null)
-        {     // if the instance var is null this is first AudioManager
-            instance = this;        //save this AudioManager in instance 
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject);    // this isnt the first so destroy it
-            return;                 // since this isn't the first return so no other code is run
+            Debug.Log("DELETING EXTRA AUDIO MANAGER.");
+            Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
 
         createAudioSources(Effects, effectsVolume);     // create sources for effects
         createAudioSources(Music, musicVolume);
@@ -55,7 +52,6 @@ public class AudioManager : MonoBehaviour
         {   // loop through each music/effect
             s.source = gameObject.AddComponent<AudioSource>(); // create anew audio source(where the sound splays from in the world)
             s.source.clip = s.clip;     // the actual music/effect clip
-
         }
     }
 

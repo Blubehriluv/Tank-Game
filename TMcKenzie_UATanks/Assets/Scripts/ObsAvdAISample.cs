@@ -64,10 +64,10 @@ public class ObsAvdAISample : MonoBehaviour
 
     }
 
-    bool CanMove (float speed)
+    bool CanMove(float speed)
     {
         RaycastHit hit;
-        if (Physics.Raycast (tf.position, tf.forward, out hit, speed))
+        if (Physics.Raycast(tf.position, tf.forward, out hit, speed))
         {
             if (!hit.collider.CompareTag("Player"))
             {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TUT_FSM : MonoBehaviour
@@ -11,7 +9,7 @@ public class TUT_FSM : MonoBehaviour
     private Motor motor;
     private TankData data;
 
-    public enum AIState { Chase, ChaseAndFire, CheckForFlee, Flee, Rest};
+    public enum AIState { Chase, ChaseAndFire, CheckForFlee, Flee, Rest };
     public AIState aiState = AIState.Chase;
     public float stateEnterTime;
     public float aiSenseRadius;
@@ -77,7 +75,7 @@ public class TUT_FSM : MonoBehaviour
                 {
                     ChangeState(AIState.CheckForFlee);
                 }
-                
+
                 break;
             case AIState.ChaseAndFire:
                 break;

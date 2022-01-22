@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Artillery : MonoBehaviour
@@ -51,6 +50,7 @@ public class Artillery : MonoBehaviour
     {
         if (canShoot)
         {
+
             ProjectileData.SetData(projectileSpeed, projectileDamage, destroyTime, this.gameObject);
             Instantiate(bullet, locationTransform.transform.position, locationTransform.transform.rotation);
             timeUntilNextEvent = firingDelay;

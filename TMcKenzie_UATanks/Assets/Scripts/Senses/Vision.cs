@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Vision : MonoBehaviour
@@ -37,7 +35,7 @@ public class Vision : MonoBehaviour
 
             RaycastHit hitInfo;
 
-            if (Physics.Raycast (rayTotarget, out hitInfo, Mathf.Infinity))
+            if (Physics.Raycast(rayTotarget, out hitInfo, Mathf.Infinity))
             {
                 Debug.Log(hitInfo + " was hit");
                 if (hitInfo.collider.gameObject == target)

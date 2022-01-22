@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
-    [SerializeField] enum InputScheme {WASD, arrowKeys};
+    [SerializeField] enum InputScheme { WASD, arrowKeys };
     [SerializeField] InputScheme input;
+    public Canvas pauseMenu;
+    private bool isPaused;
     public TankData data;
     public Motor motor;
     public Artillery arty;
@@ -16,6 +17,7 @@ public class InputController : MonoBehaviour
     {
         CheckForNull();
         SelectInput(true);
+        isPaused = false;
     }
 
     // Checks to make sure the game object's components are acquired on start.
@@ -47,6 +49,7 @@ public class InputController : MonoBehaviour
             input = InputScheme.arrowKeys;
         }
     }
+
 
     // Update is called once per frame
     void Update()
