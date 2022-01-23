@@ -75,13 +75,22 @@ public class Health : MonoBehaviour
     // Death.
     void Death()
     {
-        if (currentLives != 0)
+        if (isImmortal)
         {
-            currentLives--;
             GameManager.instance.SomeoneDied(this.gameObject);
-            Destroy(this.gameObject);
         }
-        GameManager.instance.SomeoneDied(this.gameObject);
+        else
+        {
+            if (currentLives != 0)
+            {
+                currentLives--;
+                GameManager.instance.SomeoneDied(this.gameObject);
+            }
+            else
+            {
+                // TODO : INSERT GAME OVER HERE.
+            }
+        }
         Destroy(this.gameObject);
     }
 }
