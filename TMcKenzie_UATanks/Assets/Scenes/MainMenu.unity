@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &300216865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4429512777938006862, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1810625975}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &455125403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,8 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677dcd203106bfd45bb668d6aef51d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapTypeDrop: {fileID: 0}
-  mapSeedInput: {fileID: 0}
+  mapTypeDrop: {fileID: 1810625977}
+  mapSeedInput: {fileID: 1810625976}
   screenSelectionObject: {fileID: 0}
   playerToggles:
   - {fileID: 0}
@@ -256,8 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b84109255bd6a40a4d4998e266f494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectSlider: {fileID: 0}
-  musicSlider: {fileID: 0}
+  effectSlider: {fileID: 1413739769}
+  musicSlider: {fileID: 300216865}
   Effects:
   - name: Back
     clip: {fileID: 8300000, guid: 401cc8ee4db76034da56c0f608cc6a09, type: 3}
@@ -481,6 +493,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1413739769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4429512777922456599, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1810625975}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1810625975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -488,6 +512,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1806772958696565534, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 627141963}
+    - target: {fileID: 1806772958696565534, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810802706003914338, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 627141963}
+    - target: {fileID: 1810802706003914338, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 627141963}
+    - target: {fileID: 1810802706003914338, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 627141963}
+    - target: {fileID: 1810802706003914338, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810802706003914338, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlayMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810802706003914338, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: StopMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633746115270792285, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
+    - target: {fileID: 3198162173266238961, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
     - target: {fileID: 4429512777258120846, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -598,6 +674,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4429512777343604909, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512777343604909, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 627141963}
+    - target: {fileID: 4429512777343604909, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512777343604909, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512777343604909, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: Select
+      objectReference: {fileID: 0}
     - target: {fileID: 4429512777432325020, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -638,6 +739,48 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4429512777567011512, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512777567011512, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 627141963}
+    - target: {fileID: 4429512777567011512, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512777567011512, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512777567011512, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512777621775565, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
+    - target: {fileID: 4429512777621775565, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512777681680025, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
     - target: {fileID: 4429512777859514309, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -648,13 +791,130 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4429512778162798148, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
+    - target: {fileID: 4429512778162798148, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512778514652142, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
+    - target: {fileID: 4429512778514652142, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512778699430285, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
     - target: {fileID: 4429512778714304832, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4429512778737537187, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 627141963}
+    - target: {fileID: 4429512778737537187, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512779171894080, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512779171894080, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 627141963}
+    - target: {fileID: 4429512779171894080, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512779171894080, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512779171894080, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 4429512779192434795, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
+    - target: {fileID: 4429512779263569185, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
+    - target: {fileID: 4787422683844133566, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
+    - target: {fileID: 7537324576909937962, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
+    - target: {fileID: 7578025451142567032, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: afe064c738aad0943a3d03bf5935dca0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4e21563bc93a5c478ab82b0f6c30ee6, type: 3}
+--- !u!114 &1810625976 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6737389582561809943, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1810625975}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1810625977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8356830490798290237, guid: d4e21563bc93a5c478ab82b0f6c30ee6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1810625975}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2017377815
 GameObject:
   m_ObjectHideFlags: 0

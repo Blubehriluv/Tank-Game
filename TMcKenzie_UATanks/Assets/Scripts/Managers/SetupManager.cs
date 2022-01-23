@@ -173,5 +173,4 @@ public class SetupManager : MonoBehaviour
     {
         return screen;
     }
-
 }

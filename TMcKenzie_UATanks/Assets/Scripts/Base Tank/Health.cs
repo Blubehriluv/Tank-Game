@@ -4,10 +4,14 @@ public class Health : MonoBehaviour
 {
     [SerializeField] float maxHealth;
     [SerializeField] float currentHealth;
+    [SerializeField] bool isImmortal;
+    [SerializeField] int maxLives;
+    [SerializeField] int currentLives;
 
     void Start()
     {
         currentHealth = maxHealth;
+        currentLives = maxLives;
     }
 
     void Update()
@@ -71,6 +75,12 @@ public class Health : MonoBehaviour
     // Death.
     void Death()
     {
+        if (currentLives != 0)
+        {
+            currentLives--;
+            GameManager.instance.SomeoneDied(this.gameObject);
+            Destroy(this.gameObject);
+        }
         GameManager.instance.SomeoneDied(this.gameObject);
         Destroy(this.gameObject);
     }

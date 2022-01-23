@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
     public GameObject[] enemies;
+    [SerializeField] int maxLives;
+    [SerializeField] int playerOneCurrentLives;
+    [SerializeField] int playerTwoCurrentLives;
     //public int MOTD = 428;
 
     public enum PlayMode { Single, Multi };
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        
         roomGenerator = this.gameObject.GetComponent<RoomGen>();
         roomGenerator.GenerateGrid();
         spawnManager = this.gameObject.GetComponent<SpawnManager>();
@@ -77,7 +81,6 @@ public class GameManager : MonoBehaviour
             {
                 pauseMenu.SetActive(true);
             }
-            
         }
     }
 
