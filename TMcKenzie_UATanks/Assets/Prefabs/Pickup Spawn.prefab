@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7119920552858376090}
   m_Layer: 0
   m_Name: Pickup Spawn
-  m_TagString: SpawnPoint
+  m_TagString: PickupSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

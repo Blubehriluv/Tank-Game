@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpawnFix.unity
     guid: fd1e4b82640e9694fac884c2c26c6658
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 2a284f79a76f913478b1ae1167d2aaa5
   m_configObjects: {}

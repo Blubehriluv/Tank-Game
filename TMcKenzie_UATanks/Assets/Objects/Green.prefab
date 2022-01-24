@@ -163,6 +163,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   currentHealth: 0
+  isImmortal: 1
+  maxLives: 0
+  currentLives: 0
 --- !u!114 &38755154
 MonoBehaviour:
   m_ObjectHideFlags: 0

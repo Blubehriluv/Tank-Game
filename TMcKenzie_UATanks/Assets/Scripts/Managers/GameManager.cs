@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
         roomGenerator = this.gameObject.GetComponent<RoomGen>();
         roomGenerator.GenerateGrid();
         spawnManager = this.gameObject.GetComponent<SpawnManager>();
@@ -64,6 +63,9 @@ public class GameManager : MonoBehaviour
             spawnManager.SpawnTank(enemies[i], true);
         }
 
+        playerOneCurrentLives = maxLives;
+        playerTwoCurrentLives = maxLives;
+
         pauseMenu.SetActive(false);
 
     }
@@ -81,6 +83,10 @@ public class GameManager : MonoBehaviour
             {
                 pauseMenu.SetActive(true);
             }
+        }
+
+        if (playerOneCurrentLives == 0 || playerTwoCurrentLives == 0) {
+            Debug.Log("GAME OVER");
         }
     }
 
@@ -100,6 +106,37 @@ public class GameManager : MonoBehaviour
     public void SomeoneDied(GameObject Tank)
     {
         spawnManager.SpawnTank(Tank, false);
+        Debug.Log("Attemping to spawn: " + Tank.name);
+    }
+
+    public void SetCurrentLives(int playerNumber)
+    {
+        if (playerNumber == 1 || playerNumber == 0)
+        {
+            Debug.Log("Manager is diogn it's job");
+            UIManager.instance.LoseALife();
+            playerOneCurrentLives--;
+        }
+        else if (playerNumber == 2)
+        {
+            playerTwoCurrentLives--;
+        }
+    }
+
+    public int GetCurrentLives(int playerNumber)
+    {
+        if (playerNumber == 1 || playerNumber == 0)
+        {
+            return playerOneCurrentLives;
+        }
+        else if (playerNumber == 2)
+        {
+            return playerTwoCurrentLives;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public GameObject GivePlayer()

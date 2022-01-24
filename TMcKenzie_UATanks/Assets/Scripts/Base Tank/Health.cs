@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
+    TankData data;
     [SerializeField] float maxHealth;
     [SerializeField] float currentHealth;
     [SerializeField] bool isImmortal;
@@ -10,6 +12,7 @@ public class Health : MonoBehaviour
 
     void Start()
     {
+        data = this.gameObject.GetComponent<TankData>();
         currentHealth = maxHealth;
         currentLives = maxLives;
     }
@@ -78,17 +81,18 @@ public class Health : MonoBehaviour
         if (isImmortal)
         {
             GameManager.instance.SomeoneDied(this.gameObject);
+            Debug.Log("Tank is: " + this.gameObject.name);
         }
         else
         {
-            if (currentLives != 0)
+            if (GameManager.instance.GetCurrentLives(data.GetPlayerNumber()) != 0)
             {
-                currentLives--;
+                GameManager.instance.SetCurrentLives(data.GetPlayerNumber());
                 GameManager.instance.SomeoneDied(this.gameObject);
             }
             else
             {
-                // TODO : INSERT GAME OVER HERE.
+                
             }
         }
         Destroy(this.gameObject);

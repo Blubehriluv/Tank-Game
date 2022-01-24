@@ -39,12 +39,6 @@ public class TankData : MonoBehaviour
         return killValue;
     }
 
-    // Adds points to the total score of this game object.
-    public void AcquirePoints(int pointsToGain)
-    {
-        acquiredPoints += pointsToGain;
-    }
-
     // Getter for the rate of forward movement.
     public float GetForward()
     {

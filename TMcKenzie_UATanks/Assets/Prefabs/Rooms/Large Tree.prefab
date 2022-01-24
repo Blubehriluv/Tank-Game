@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 693427886551534948}
   m_Layer: 0
   m_Name: Pickup Spawn
-  m_TagString: SpawnPoint
+  m_TagString: PickupSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 36183051765429455}
   m_Layer: 0
   m_Name: Pickup Spawn (1)
-  m_TagString: SpawnPoint
+  m_TagString: PickupSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

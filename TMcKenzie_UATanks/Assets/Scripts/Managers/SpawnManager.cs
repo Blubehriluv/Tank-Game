@@ -14,7 +14,6 @@ public class SpawnManager : MonoBehaviour
     {
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         spawnLocations = new List<Transform>();
-
     }
 
     // Update is called once per frame
@@ -26,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     public void InitializeLocations()
     {
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
-        spawnLocations = new List<Transform>();
+        //spawnLocations = new List<Transform>();
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             spawnLocations.Add(spawnPoints[i].GetComponent<Transform>().transform);
@@ -36,12 +35,13 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnTank(GameObject Tank, bool isMultiple)
     {
-        CheckLocations();
         if (!isMultiple)
         {
             int tempIndex = RandomNumber(0, openLocations.Count);
+            Debug.Log("this is the amount of open locations: " + openLocations.Count + "this is the tempIndex " + tempIndex);
+            
             Instantiate(Tank, openLocations[tempIndex].position, openLocations[tempIndex].rotation);
-            openLocations.RemoveAt(tempIndex);
+            //openLocations.RemoveAt(tempIndex);
         }
         //TODO: Remove isMultiple; remove for loop
         else
@@ -57,18 +57,12 @@ public class SpawnManager : MonoBehaviour
 
     void CheckLocations()
     {
-        openLocations = new List<Transform>();
         for (int i = 0; i < spawnLocations.Count; i++)
         {
-            if (spawnLocations[i].gameObject.GetComponent<Spawn>().TypeOfSpawn())
+            if (!spawnLocations[i].GetComponent<Spawn>().OccupationCheck())
             {
-
-                if (!spawnLocations[i].GetComponent<Spawn>().OccupationCheck())
-                {
-
-                    openLocations.Add(spawnPoints[i].GetComponent<Transform>());
-                    //continue;
-                }
+                openLocations.Add(spawnPoints[i].GetComponent<Transform>());
+                //continue;
             }
         }
     }

@@ -13,7 +13,7 @@ public class Vision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CanSee(GameManager.instance.Player1);
+        //CanSee(GameManager.instance.Player1);
     }
 
     public float GetFOV()

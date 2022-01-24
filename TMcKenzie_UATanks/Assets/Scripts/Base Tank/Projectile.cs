@@ -67,12 +67,13 @@ public class Projectile : MonoBehaviour
                 // If the tank will die, the shooter recieves the kill value points.
                 if (helperVariable <= 0)
                 {
-                    parentObject.GetComponent<TankData>().AcquirePoints(collision.gameObject.GetComponent<TankData>().GetKillPoints());
+                    UIManager.instance.AcquirePoints(collision.gameObject.GetComponent<TankData>().GetKillPoints(), parentObject.GetComponent<TankData>().GetPlayerNumber());
+                    
                 }
                 // If the tank will not die, the shooter recieves the hit value points.
                 else
                 {
-                    parentObject.GetComponent<TankData>().AcquirePoints(collision.gameObject.GetComponent<TankData>().GetHitPoints());
+                    UIManager.instance.AcquirePoints(collision.gameObject.GetComponent<TankData>().GetHitPoints(), parentObject.GetComponent<TankData>().GetPlayerNumber());
                 }
             }
             // The item hit recieves damage and is communicated to console.

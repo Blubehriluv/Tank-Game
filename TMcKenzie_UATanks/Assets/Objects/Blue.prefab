@@ -20,6 +20,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 38755153, guid: 1a4d5f987473fda4db15fab16ad07973, type: 3}
+      propertyPath: isImmortal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 38755154, guid: 1a4d5f987473fda4db15fab16ad07973, type: 3}
       propertyPath: m_Enabled
       value: 1

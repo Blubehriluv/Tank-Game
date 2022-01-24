@@ -770,7 +770,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 420
+  m_Text: 0
 --- !u!222 &554418708
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1262,8 +1262,13 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1574112496}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1195894312308397357, guid: 91e9362d5fece0540868c54499ea2f85,
+        type: 3}
+      propertyPath: maxLives
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1195894312308397357, guid: 91e9362d5fece0540868c54499ea2f85,
         type: 3}
       propertyPath: pauseMenu
@@ -1295,7 +1300,7 @@ PrefabInstance:
     - target: {fileID: 1195894312308397358, guid: 91e9362d5fece0540868c54499ea2f85,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1195894312308397358, guid: 91e9362d5fece0540868c54499ea2f85,
         type: 3}
@@ -1320,17 +1325,17 @@ PrefabInstance:
     - target: {fileID: 1195894312308397358, guid: 91e9362d5fece0540868c54499ea2f85,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1195894312308397358, guid: 91e9362d5fece0540868c54499ea2f85,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1195894312308397358, guid: 91e9362d5fece0540868c54499ea2f85,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1195894312308397358, guid: 91e9362d5fece0540868c54499ea2f85,
         type: 3}
@@ -2004,7 +2009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93397d60840f8f24598c13f332f23381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives:
+  P1lives:
   - {fileID: 1207366696}
   - {fileID: 458059797}
   - {fileID: 843101260}
@@ -2013,6 +2018,12 @@ MonoBehaviour:
   - {fileID: 1006733367}
   - {fileID: 1481718314}
   - {fileID: 1868417795}
+  playerOneScore: {fileID: 554418707}
+  playerTwoScore: {fileID: 0}
+  currentP1Lives: 0
+  currentP2Lives: 0
+  playerOnePoints: 0
+  playerTwoPoints: 0
 --- !u!1 &1207366694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2127,12 +2138,6 @@ RectTransform:
 --- !u!1 &1236073360 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1195894312308397359, guid: 91e9362d5fece0540868c54499ea2f85,
-    type: 3}
-  m_PrefabInstance: {fileID: 770278900}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1236073361 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1195894312308397358, guid: 91e9362d5fece0540868c54499ea2f85,
     type: 3}
   m_PrefabInstance: {fileID: 770278900}
   m_PrefabAsset: {fileID: 0}
@@ -2912,8 +2917,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1236073361}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
